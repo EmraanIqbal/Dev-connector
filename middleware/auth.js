@@ -9,4 +9,14 @@ module.exports = function (req, res, next) {
   if (!token) {
     return res.status(401).json({ msg: "No Token, Authorization Failed" });
   }
+
+  // Verify Token
+  try {
+    const decoded = jwt.verify(token, config.get("jwtSecret"));
+
+    req.user = decoded.user;
+    next();
+  } catch (error) {
+    res.status(401).json({ msg: "Token is not valid" });
+  }
 };
