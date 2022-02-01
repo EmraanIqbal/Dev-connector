@@ -1,4 +1,6 @@
 ## DevConnector
+#####Create a developer profile/portfolio, share posts and get help from
+#####other developers
 
 ### Technologies 
 Node, Express, Mongodb, React
